@@ -1,8 +1,11 @@
 
+
+
 import { NavLink } from 'react-router-dom';
+
 const Navbar = () => {
     return (
-        <div className="">
+        <div className="fixed top-0 w-full z-50 bg-base-100 shadow-xl m-auto w-11/12 rounded-full ">
             <div className="navbar bg-base-100 rounded-full shadow-xl  ">
             <div className="navbar-start ">
                 <div className="dropdown">

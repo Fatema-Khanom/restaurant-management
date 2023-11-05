@@ -14,7 +14,7 @@ const ContactUs = () => {
                     </Fade>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-xl">
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
                         <Roll left>
                             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Send Us a Message</h3>
                         </Roll>
@@ -25,7 +25,7 @@ const ContactUs = () => {
                                         <input
                                             type="text"
                                             placeholder="Your Name"
-                                            className="w-full py-2 px-3 rounded-full border border-gray-300 focus:outline-none focus:ring focus:border-red-500"
+                                            className="w-full py-2 px-3 rounded-xl border border-gray-300 focus:outline-none focus:ring focus:border-red-500"
                                         />
                                     </Zoom>
                                 </div>
@@ -34,7 +34,7 @@ const ContactUs = () => {
                                         <input
                                             type="email"
                                             placeholder="Your Email"
-                                            className="w-full py-2 px-3 rounded-full border border-gray-300 focus:outline-none focus:ring focus:border-red-500"
+                                            className="w-full py-2 px-3 rounded-xl border border-gray-300 focus:outline-none focus:ring focus:border-red-500"
                                         />
                                     </Zoom>
                                 </div>
@@ -58,7 +58,7 @@ const ContactUs = () => {
                             </form>
                         </Bounce>
                     </div>
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-xl">
+                    <div className="bg-white p-6 rounded-lg shadow-xl pt-28">
                         <Rotate bottom left>
                             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Contact Information</h3>
                         </Rotate>

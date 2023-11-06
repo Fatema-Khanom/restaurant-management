@@ -16,12 +16,12 @@ const SignUp = () => {
   const navigate = useNavigate();
   console.log("location in the signin page", location);
 
-  const handleGoogle = () => {
-    googleSignIn().then((result) => {
-      console.log(result.user);
-      navigate(location?.state ? location.state : "/");
-    });
-  };
+//   const handleGoogle = () => {
+//     googleSignIn().then((result) => {
+//       console.log(result.user);
+//       navigate(location?.state ? location.state : "/");
+//     });
+//   };
 
   // Function to validate the password
   const isPasswordValid = (password) => {
@@ -160,7 +160,7 @@ const SignUp = () => {
               Google
             </button>
           </div> */}
-          <div className="border"><Link to={'/login'}>Login</Link></div>
+          <div className=" mt-2"><Link to={'/login'}>Already have account? <span className="text-red-700 font-bold">Login</span></Link></div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 
 import { useContext, useState } from "react";
 //import { AuthContext } from "../../Provider/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
@@ -97,16 +97,18 @@ const Login = () => {
                             Login
                         </button>
                     </div>
-                    <div className="flex items-center justify-center mt-2">
+                    
+                    {error && (
+                        <p className="text-red-500 text-sm mt-2">{error}</p>
+                    )}
+                </form>
+                <div className="flex items-center justify-center mt-2 border border-blue-500">
                         <h2 >Login with </h2>
                         <button onClick={handleGoogle} type="button" className="text-blue-800 font-bold ml-2">
                             Google
                         </button>
                     </div>
-                    {error && (
-                        <p className="text-red-500 text-sm mt-2">{error}</p>
-                    )}
-                </form>
+                    <div className=" mt-2"><Link to={'/signup'}>Haven't any account? <span className="text-red-700 font-bold">SignUp</span></Link></div>
             </div>
         </div>
     );

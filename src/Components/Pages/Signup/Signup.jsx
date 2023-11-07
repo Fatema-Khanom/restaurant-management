@@ -3,9 +3,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { signUp, googleSignIn } = useContext(AuthContext);
+  const { signUp, } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [photoURL, setPhotoURL] = useState("");
@@ -47,6 +48,37 @@ const SignUp = () => {
       setError("Sign-up failed. Please check your information.");
       console.error("Sign-up error:", error);
     }
+
+     // create user
+     createUserWithEmailAndPassword(auth, email, password)
+     .then(result => {
+         console.log(result.user);
+         //setSuccess('User Created Successfully.')
+         Swal.fire({
+          icon: "success",
+          title: "Sign-up Successful",
+          text: "You are now signed up and logged in.",
+        })
+
+         // update profile
+         updateProfile(result.user, {
+             displayName: name, 
+             photoURL: "https://example.com/jane-q-user/profile.jpg"
+         })
+         .then( () => console.log('profile updated'))
+         .catch()
+
+         // send verification email: 
+         sendEmailVerification(result.user)
+         .then( () =>{
+             alert('Please check your email and verify your account')
+         })
+
+     })
+     .catch(error => {
+         console.error(error);
+         setError(error.message);
+     })
   };
 
   const backgroundImage =

@@ -1,9 +1,11 @@
 
 
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
     return (
         <div className="fixed top-0  z-50 bg-base-100 shadow-xl m-auto w-11/12 rounded-full ">
             <div className="navbar bg-base-100 rounded-full shadow-xl  ">
@@ -75,7 +77,7 @@ const Navbar = () => {
                         </NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end  ">
+            {/* <div className="navbar-end  ">
                <ul className='menu menu-horizontal px-1 font-semibold '>
                 
                <li><NavLink
@@ -89,7 +91,35 @@ const Navbar = () => {
                </ul>
                
                
-            </div>
+            </div> */}
+
+<div className="navbar-end">
+                    {
+                        user?.email ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} alt={user.displayName} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost">{user.displayName}</button>
+
+                                </li>
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost"
+                                        onClick={logOut}
+                                    >Logout</button>
+
+                                </li>
+                            </ul>
+                        </div>
+                            :
+                            <Link to='/login'>
+                                <button className="btn btn-sm  btn-ghost">Login</button>
+                            </Link>
+                    }
+                </div>
             </div>
         </div>
     );

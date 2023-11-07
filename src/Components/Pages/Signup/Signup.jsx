@@ -16,12 +16,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   console.log("location in the signin page", location);
 
-//   const handleGoogle = () => {
-//     googleSignIn().then((result) => {
-//       console.log(result.user);
-//       navigate(location?.state ? location.state : "/");
-//     });
-//   };
 
   // Function to validate the password
   const isPasswordValid = (password) => {
@@ -150,16 +144,7 @@ const SignUp = () => {
           </div>
           
         </form>
-        {/* <div className="flex items-center justify-center mt-2">
-            <h2>Login with</h2>
-            <button
-              onClick={handleGoogle}
-              type="button"
-              className="text-blue-800 font-bold ml-2"
-            >
-              Google
-            </button>
-          </div> */}
+        
           <div className=" mt-2"><Link to={'/login'}>Already have account? <span className="text-red-700 font-bold">Login</span></Link></div>
       </div>
     </div>

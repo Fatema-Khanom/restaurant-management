@@ -116,7 +116,7 @@ const Navbar = () => {
 
                                 </li>
                                 <li>
-                                    <button className="btn btn-sm  btn-ghost">Add a food item</button>
+                                    <Link to={"/addfood"}><button className="btn btn-sm  btn-ghost">Add a food item</button></Link>
 
                                 </li>
                                 <li>

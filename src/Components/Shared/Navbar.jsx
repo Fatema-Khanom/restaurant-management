@@ -80,22 +80,7 @@ const Navbar = () => {
                         </NavLink></li>
                 </ul>
             </div>
-            {/* <div className="navbar-end  ">
-               <ul className='menu menu-horizontal px-1 font-semibold '>
-                
-               <li><NavLink
-                        to="/login"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "active" : ""
-                        }
-                        >
-                            Login
-                        </NavLink></li>
-               </ul>
-               
-               
-            </div> */}
-
+           
                     <div className="navbar-end">
                     {
                         user?.email ? <div className="dropdown dropdown-end">

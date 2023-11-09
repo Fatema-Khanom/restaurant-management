@@ -1,12 +1,18 @@
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { useContext, useState } from "react";
+import {  useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 
+
+
+
+
+
+
 const SignUp = () => {
-  const { signUp, } = useContext(AuthContext);
+  const { signUp,auth } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [photoURL, setPhotoURL] = useState("");
@@ -63,7 +69,7 @@ const SignUp = () => {
          // update profile
          updateProfile(result.user, {
              displayName: name, 
-             photoURL: "https://example.com/jane-q-user/profile.jpg"
+             photoURL: photoURL,
          })
          .then( () => console.log('profile updated'))
          .catch()

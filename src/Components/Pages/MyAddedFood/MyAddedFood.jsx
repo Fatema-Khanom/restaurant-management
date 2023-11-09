@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
 
 
-const AllFood = () => {
+const MyAddedFood = () => {
     
     const [food, setFood] = useState(null);
 
@@ -28,7 +28,7 @@ const AllFood = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                     food.map(food => <FoodCard
-                        key={food._id}
+                        key={food.gmail}
                         food={food}
                     ></FoodCard>)
                 }
@@ -42,4 +42,4 @@ const AllFood = () => {
     );
 };
 
-export default AllFood;
+export default MyAddedFood;

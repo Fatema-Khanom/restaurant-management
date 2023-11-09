@@ -1,8 +1,12 @@
 
 
+import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const AddFood = () => {
+    const {user} = useContext(AuthContext);
+    console.log('User Data:', user);
     const handleAddProduct = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,6 +17,9 @@ const AddFood = () => {
         const foodOrigin = form.foodOrigin.value;
         const shortDescription = form.shortDescription.value;
         const photoURL = form.photoURL.value;
+        const email = user?.email;
+        const name = user?.displayName;
+       
 
         const addProduct = {
             foodName,
@@ -22,6 +29,8 @@ const AddFood = () => {
             foodOrigin,
             shortDescription,
             photoURL,
+            email,
+            name,
         };
 
         console.log(addProduct);
@@ -80,7 +89,7 @@ const AddFood = () => {
                                 <input type="text" placeholder="Food Category" name="foodCategory" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control md-w-1/2 md:ml-4">
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text text-black font-bold">Quantity</span>
                             </label>
@@ -108,6 +117,28 @@ const AddFood = () => {
                             </label>
                         </div>
                     </div>
+
+
+
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text text-black font-bold">Name</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" placeholder="User Name" name="name" defaultValue={user.displayName}  className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text text-black font-bold">Email</span>
+                            </label>
+                            <label className="input-">
+                                <input type="email" placeholder="User Email" name="email" defaultValue={user?.email}  className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                    </div>
+
 
                     <div className="mb-8">
                         <div className="form-control md:w-full">

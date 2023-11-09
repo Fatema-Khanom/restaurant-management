@@ -6,6 +6,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignUp from "../Pages/Signup/Signup";
 import Blog from "../Pages/Blog/Blog";
 import AddFood from "../Pages/AddFood/AddFood";
+import AllFood from "../Pages/AllFood/AllFood";
+import DetailsCard from "../Pages/AllFood/detailsCard";
 
 
 const router = createBrowserRouter([
@@ -32,7 +34,15 @@ const router = createBrowserRouter([
       {
         path:"/addfood",
         element:<AddFood></AddFood>
-      }
+      },
+      {
+        path:"/allfooditems",
+        element:<AllFood></AllFood>,
+      },
+      {
+        path:"/foodDetails",
+        element:<DetailsCard></DetailsCard>,
+      },
       
     ]
     },
